@@ -37,13 +37,9 @@ export default {
     },
     selected(currentNode) {
       //节点选中状态
-      if (!currentNode.selected) {
-        this.active(currentNode);
-        currentNode.selected = true;
-      } else {
-        this.active(false);
-        currentNode.selected = false;
-      }
+      currentNode == this.currentActive.active
+        ? this.active(false)
+        : this.active(currentNode);
     }
   }
 };
