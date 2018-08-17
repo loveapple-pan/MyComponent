@@ -25,5 +25,5 @@
 * selected选中高亮状态（一次只有一个高亮）
 * 对于传进来的nodes数据完成节点渲染
 
-![tree.gif](https://panali.oss-cn-hangzhou.aliyuncs.com/github%E4%BB%93%E5%BA%93/MyComponent/Tree%E7%BB%84%E4%BB%B6/tree.gif)
+![tree.gif](https://panali.oss-cn-hangzhou.aliyuncs.com/github%E4%BB%93%E5%BA%93/MyComponent/Tree%E7%BB%84%E4%BB%B6/1.gif)
 =======
