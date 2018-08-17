@@ -9,9 +9,9 @@
 > 3.base文件夹 
 > - collapse.js===>使用函数式组件返回折叠功能的transition组件
 
-关于tree.vue
+关于tree1.vue
 
-使用了依赖注入`currentActive属性和active方法`所有子组件公用一个`currentActive`变量使用`active`方法去激活样式
+使用了依赖注入父组件传入`currentActive属性和active方法`让所有子组件公用一个`currentActive`变量使用`active`方法去激活样式
 
 使用了递归组件 让组件调用自身去完成迭代
 
