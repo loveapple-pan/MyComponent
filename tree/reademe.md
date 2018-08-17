@@ -3,14 +3,20 @@
 包含的文件
 
 > 1.tree.vue ==> 预计使用render函数实现（暂未完成）
+> 
 > 3.tree.vue==>使用template模板完成的树组件
+> 
 > 3.base文件夹 
 > - collapse.js===>使用函数式组件返回折叠功能的transition组件
 
-
 关于tree.vue
-使用了依赖注入`currentActive属性和active方法`所有子组件公用一个`currentActive`变量使用`active`方法去激活样式
+
+使用了依赖注入`currentActive属性和active方法`所有子组件公用一个`currentActive`变
+
+量使用`active`方法去激活样式
+
 使用了递归组件 让组件调用自身去完成迭代
+
 使用函数化的`transition`组件去完成展开闭合的过渡动画效果 
 
 ---
