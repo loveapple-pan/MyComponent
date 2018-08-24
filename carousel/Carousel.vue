@@ -1,6 +1,6 @@
 <template>
     <div class="carousel-wrapper" @mouseover="showArrow" @mouseout="hiddenArrow">
-      <ul v-show="slideShow" ref="slide">
+      <ul ref="slide">
           <li v-for="(img,index) in imgArray"
           :key="index"
           >
@@ -19,26 +19,36 @@
 <script>
 export default {
   name: 'Carousel',
+  props: {
+    imgArray: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    autoPlay: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       showMark: false,
-      slideShow: true,
       currentIndex: 0,
-      timer: null,
-      imgArray: [
-        require('./1.jpg'),
-        require('./2.jpg'),
-        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2475314098,1324594906&fm=27&gp=0.jpg',
-        require('./4.jpg')
-      ]
+      timer: null, // 函数节流计时器
+      autoTimeer: null // 自动播放时间计时器
     }
   },
   methods: {
     showArrow () {
+      // 显示箭头指示并停止轮播
       this.showMark = true
+      this.autoPlay && clearInterval(this.autoTimeer)
     },
     hiddenArrow () {
+      // 与上边相反
       this.showMark = false
+      this.autoPlay && this.autoPlayPic()
     },
     debounce (type) {
       // 函数节流
@@ -46,6 +56,22 @@ export default {
         clearTimeout(this.timer)
       }
       this.timer = setTimeout(this.click.bind(this, type), 80)
+    },
+    movePic () {
+      // 根据索引移动图片
+      let ulDom = this.$refs.slide
+      let moveSpace = -this.currentIndex * 100 + '%'
+      ulDom.style.left = moveSpace
+    },
+    autoPlayPic () {
+      if (this.autoPlay) {
+        // 开启自动播放轮播
+        this.autoTimeer = setInterval(() => {
+          this.currentIndex++
+          this.currentIndex %= this.imgArray.length
+          this.movePic()
+        }, 5000)
+      }
     },
     click (alp) {
       // 图片的上一张和下一张
@@ -60,14 +86,13 @@ export default {
           this.currentIndex = 0
         }
       }
-      let ulDom = this.$refs.slide
-      let moveSpace = -this.currentIndex * 100 + '%'
-      ulDom.style.left = moveSpace
+      this.movePic()
     }
   },
   mounted () {
     this.$nextTick(() => {
       this.$refs.slide.style.left = 0
+      this.autoPlayPic()
     })
   }
 }
