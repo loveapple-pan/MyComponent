@@ -17,4 +17,4 @@
 * autoPlay 自动播放图片 间隔时间默认 5000ms
 * 上一张和下一张
 
-![轮播图](https://panali.oss-cn-hangzhou.aliyuncs.com/github%E4%BB%93%E5%BA%93/MyComponent/%E8%BD%AE%E6%92%AD%E5%9B%BE%E7%BB%84%E4%BB%B6/carousel.gif)
+![轮播图](https://panali.oss-cn-hangzhou.aliyuncs.com/github%E4%BB%93%E5%BA%93/MyComponent/%E8%BD%AE%E6%92%AD%E5%9B%BE%E7%BB%84%E4%BB%B6/carousel.gif&s=200)
